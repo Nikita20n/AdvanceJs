@@ -1,45 +1,76 @@
-function a() {
-    const bookingType = document.getElementById("booking").value;
-    const dateSection = document.getElementById("date");
-    const timeSlotSection = document.getElementById("timeSlotSection");
-    const dateTimeSection = document.getElementById("dateTimeSection");
-  
-    dateSection.style.display = "none";
-    timeSlotSection.style.display = "none";
-    dateTimeSection.style.display = "none";
-  
-    if (bookingType === "fullDay") {
-      dateSection.style.display = "block";
-    } else if (bookingType === "halfDay") {
-      dateSection.style.display = "block";
-      timeSlotSection.style.display = "block";
-    } else if (bookingType === "hourly") {
-      dateTimeSection.style.display = "block";
-    }
+function showBookingOptions() {
+  // remove previous booking options ( booking-box )
+  document.getElementById("booking-options").innerHTML = "";
+
+  var bookingType = document.getElementById("booking-type").value;
+
+  if (bookingType == "full-day") {
+    // show only date input
+    var dateInput = document.createElement("input");
+    dateInput.type = "date";
+    dateInput.id = "date";
+    dateInput.required = true;
+
+    document.getElementById("booking-options").appendChild(dateInput);
+  } else if (bookingType == "half-day") {
+    //  show only date input
+    var dateInput = document.createElement("input");
+    dateInput.type = "date";
+    dateInput.id = "date";
+    dateInput.required = true;
+
+    // show only slot option
+    //for select-option
+    var slotOptions = document.createElement("select");
+    slotOptions.id = "slotOptions";
+    slotOptions.required = true;
+
+    //for disabled option
+    var Option = document.createElement("option");
+    Option.value = "";
+    Option.disabled = "disabled";
+    Option.selected = "selected";
+    Option.innerHTML = "--Selected Option--";
+
+    //for multiple option
+    // 1.Breakfast
+    var Breakfast = document.createElement("option");
+    Breakfast.value = "Breakfast";
+    Breakfast.innerHTML = "Breakfast";
+
+    // 2.Lunch
+    var Lunch = document.createElement("option");
+    Lunch.value = "Lunch";
+    Lunch.innerHTML = "Lunch";
+
+    // 3.Dinner
+    var Dinner = document.createElement("option");
+    Dinner.value = "Dinner";
+    Dinner.innerHTML = "Dinner";
+
+    // call multiple options
+    slotOptions.appendChild(Option);
+    slotOptions.appendChild(Breakfast);
+    slotOptions.appendChild(Lunch);
+    slotOptions.appendChild(Dinner);
+
+    document.getElementById("booking-options").appendChild(dateInput);
+    document.getElementById("booking-options").appendChild(slotOptions);
+  } else if (bookingType == "hourly") {
+    // for Date including
+    var dateInput = document.createElement("input");
+    dateInput.type = "date";
+    dateInput.id = "date";
+    dateInput.required = true;
+
+    //for time including
+    var timeInput = document.createElement("input");
+    timeInput.type = "time";
+    timeInput.id = "time";
+    timeInput.required = true;
+
+    document.getElementById("booking-options").appendChild(dateInput);
+    document.getElementById("booking-options").appendChild(timeInput);
+    
   }
-  
-  document.getElementById("bookingForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent form submission for demo 
-  
-    const userName = document.getElementById("userName").value;
-    const mobileNumber = document.getElementById("mobileNumber").value;
-    const email = document.getElementById("email").value;
-    const numberOfPersons = document.getElementById("numberOfPersons").value;
-    const bookingType = document.getElementById("bookingType").value;
-    const date = document.getElementById("date").value;
-    const timeSlot = document.getElementById("timeSlot")?.value || "";
-    const dateTime = document.getElementById("dateTime")?.value || "";
-  
-    // Use the form values (example, validation.)
-    console.log("User Name:", userName);
-    console.log("Mobile Number:", mobileNumber);
-    console.log("Email:", email);
-    console.log("No of Persons:", numberOfPersons);
-    console.log("Booking Type:", bookingType);
-    console.log("Date:", date);
-    console.log("Time Slot:", timeSlot);
-    console.log("Date & Time:", dateTime);
-  });
-function one(){
-    alert("you have successfully submitted!!!");
-}  
+}

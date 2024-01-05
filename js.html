@@ -1,65 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Restaurant Booking Form</title>
+
     <link rel="stylesheet" href="js.css">
+
 </head>
+
 <body>
-    <form id="bookingForm" class="booking-form">
-        <div class="form-group">
-          <label for="bookingType">Choice of Booking:</label>
-          <select id="booking" onchange="a()" class="form-control">
-            <option value="fullDay">Full day booking</option>
-            <option value="halfDay">Half day booking</option>
-            <option value="hourly">Hourly booking</option>
-          </select>
-        </div>
-      
-        <div class="form-group">
-          <label for="userName">User Name:</label>
-          <input type="text" id="userName" class="form-control">
-        </div>
-      
-        <div class="form-group">
-          <label for="mobileNumber">Mobile Number:</label>
-          <input type="text" id="mobileNumber" class="form-control">
-        </div>
-      
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" class="form-control">
-        </div>
-      
-        <div class="form-group">
-          <label for="numberOfPersons">No of Persons:</label>
-          <input type="number" id="numberOfPersons" class="form-control">
-        </div>
-      
-        <div id="dateSection" class="form-group">
-          <label for="date">Date:</label>
-          <input type="date" id="date" class="form-control">
-        </div>
-      
-        <div id="timeSlotSection" class="form-group" style="display: none;">
-          <label for="timeSlot">Slot:</label>
-          <select id="timeSlot" class="form-control">
-            <option value="breakfast">Breakfast</option>
-            <option value="lunch">Lunch</option>
-            <option value="dinner">Dinner</option>
-          </select>
-        </div>
-      
-        <div id="dateTimeSection" class="form-group" style="display: none;">
-          <label for="dateTime">Date & Time:</label>
-          <input type="datetime-local" id="dateTime" class="form-control">
-        </div>
-      
-        <!-- <input type="submit" value="Submit" class="submit-btn"> -->
-        <button class="submit-btn" onclick="one()">submit</button>
-      </form>
-      
+    <section>
+        <form id="booking">
+            <table id="booking-box">
+                <tr>
+                    <td colspan="2">
+                        <h1>Restaurant Booking Form</h1>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="booking-type">Details of Booking:</label></td>
+                    <td>
+                        <select id="booking-type" onchange="showBookingOptions()">
+                            <option value="" disabled selected>--Please select--</option>
+                            <option value="full-day">Full Day Booking</option>
+                            <option value="half-day">Half Day Booking</option>
+                            <option value="hourly">Hourly Booking</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr id="name-box">
+                    <td><label for=""> User Name :</label></td>
+                    <td><input type="text" id="username" placeholder="Enter Your Name" required></td>
+                </tr>
+                <tr id="mobile-box">
+                    <td><label for="">Mobile :</label></td>
+                    <td><input type="tel" id="mobile" placeholder="Enter Your Mobile No" required></td>
+                </tr>
+                <tr id="email-box">
+                    <td><label for="">Email :</label></td>
+                    <td><input type="email" id="email" placeholder="Enter Your Email" required></td>
+                </tr>
+                <tr id="person-box">
+                    <td><label for="">Number Of People :</label> </td>
+                    <td><input type="number" id="num-people" placeholder="People Count" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2" id="booking-options"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit"></td>
+                </tr>
+            </table>
+            <div id="booking-box">
+        </form>
+    </section>
+
+
 </body>
-<script src="js.js"></script>
+
+
 </html>
+<script src="js.js"></script>
